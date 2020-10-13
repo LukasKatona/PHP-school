@@ -95,7 +95,7 @@ $hodiny = array (0,1,2,3,4,5,6,7);
         <tr>
             <td data-label="DEN"><?echo $den;?></td>
             <?foreach ($hodiny as $j=>$hodina):?>
-                <td data-label=""><?echo @$rozvrh[$i][$j]?></td>
+                <td data-label="<?echo $j?>"><?echo @$rozvrh[$i][$j]?></td>
             <?endforeach;?>
         </tr>
     <?endforeach;?>
