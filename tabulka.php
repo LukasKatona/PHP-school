@@ -2,7 +2,11 @@
     session_start();
 ?>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
 
 <?php
         if (empty($_SESSION["jazyk"]))
@@ -59,10 +63,13 @@ $dni = array ("Pondelok", "Utorok", "Streda", "Stvrtok", "Piatok");
 $hodiny = array (0,1,2,3,4,5,6,7);
 ?>
 
-<div style="margin: 10px">
+
+
 
 <a href = "tabulka.php?jazyk=sk">slovensky</a>
 <a href = "tabulka.php?jazyk=en">anglicky</a>
+
+<br>
 
 <?php
     $sql = "SELECT trieda FROM rozvrh GROUP BY trieda ORDER BY trieda";
@@ -72,30 +79,30 @@ $hodiny = array (0,1,2,3,4,5,6,7);
         echo "<br><a href =  tabulka.php?trieda=".$row["trieda"].">".$row["trieda"]."</a>";
     }
 ?>
-<hr>
+
+<br><br>
 
 <table border=1 class="table">
-    <tr>
+    <thead>
         <th>DEN</th>
         <?foreach ($hodiny As $i=>$hodina):?>
-            <th style="text-align: center"><?echo $hodina;?></th>
+            <th><?echo $hodina;?></th>
         <?endforeach;?>
-    </tr>
+    </thead>
 
+    <tbody>
     <?foreach ($dni As $i=>$den):?>
         <tr>
-            <th><?echo $den;?></th>
+            <td data-label="DEN"><?echo $den;?></td>
             <?foreach ($hodiny as $j=>$hodina):?>
-                <td style="text-align: center"><?echo @$rozvrh[$i][$j];?></td>
+                <td data-label=""><?echo @$rozvrh[$i][$j]?></td>
             <?endforeach;?>
         </tr>
     <?endforeach;?>
+    </tbody>
 </table>
-<hr>
 
 <?php
     #echo "<pre>";
     #var_dump($rozvrh);
 ?>
-
-</div>
