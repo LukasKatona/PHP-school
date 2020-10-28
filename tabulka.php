@@ -82,7 +82,7 @@ $hodiny = array (0,1,2,3,4,5,6,7);
 
 <br><br>
 
-<table border=1 class="table">
+<table class="table">
     <thead>
         <th>DEN</th>
         <?foreach ($hodiny As $i=>$hodina):?>
@@ -105,4 +105,17 @@ $hodiny = array (0,1,2,3,4,5,6,7);
 <?php
     #echo "<pre>";
     #var_dump($rozvrh);
+
+    function preloz($retazec, $conn)
+        {
+            $sql = "SELECT preklad FROM preklad WHERE retazec='" . $retazec . "' AND jazyk='" . $_SESSION["jazyk"] . "'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result);
+
+            return !empty($row["preklad"]) ? $row["preklad"] : $retazec;
+        }
 ?>
+
+SELECT u.datum_narodenia, u.meno, u.priezvisko, u.id_c_trieda, ct.id_c_trieda, ct.nazovc_trieda
+FROM uzivatelia AS u
+LEFT JOIN c_trieda AS cl ON cl.idc_trieda = u.id_c_trieda

@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Oct 14, 2020 at 06:52 AM
--- Server version: 8.0.18
--- PHP Version: 7.3.12
+-- Hostiteľ: 127.0.0.1:3308
+-- Čas generovania: St 28.Okt 2020, 08:01
+-- Verzia serveru: 8.0.18
+-- Verzia PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `katona`
+-- Databáza: `katona`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `c_trieda`
+-- Štruktúra tabuľky pre tabuľku `c_pohlavie`
+--
+
+DROP TABLE IF EXISTS `c_pohlavie`;
+CREATE TABLE IF NOT EXISTS `c_pohlavie` (
+  `idc_pohlavie` int(2) NOT NULL AUTO_INCREMENT,
+  `nazovc_pohlavie` varchar(50) CHARACTER SET utf8 COLLATE utf8_slovak_ci NOT NULL,
+  PRIMARY KEY (`idc_pohlavie`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
+
+--
+-- Sťahujem dáta pre tabuľku `c_pohlavie`
+--
+
+INSERT INTO `c_pohlavie` (`idc_pohlavie`, `nazovc_pohlavie`) VALUES
+(1, 'muž'),
+(2, 'žena'),
+(3, 'attack helicopter'),
+(4, 'other');
+
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `c_trieda`
 --
 
 DROP TABLE IF EXISTS `c_trieda`;
@@ -34,21 +57,22 @@ CREATE TABLE IF NOT EXISTS `c_trieda` (
   `nazovc_trieda` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `skupina` int(1) NOT NULL,
   PRIMARY KEY (`idc_trieda`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
 --
--- Dumping data for table `c_trieda`
+-- Sťahujem dáta pre tabuľku `c_trieda`
 --
 
 INSERT INTO `c_trieda` (`idc_trieda`, `nazovc_trieda`, `skupina`) VALUES
 (1, '1.A', 1),
 (2, '2.A', 2),
-(3, '3.B', 3);
+(3, '3.B', 3),
+(4, '4.B', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `preklad`
+-- Štruktúra tabuľky pre tabuľku `preklad`
 --
 
 DROP TABLE IF EXISTS `preklad`;
@@ -61,17 +85,17 @@ CREATE TABLE IF NOT EXISTS `preklad` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
 --
--- Dumping data for table `preklad`
+-- Sťahujem dáta pre tabuľku `preklad`
 --
 
 INSERT INTO `preklad` (`idpreklad`, `jazyk`, `retazec`, `preklad`) VALUES
-(1, 'sk', 'pfg', 'Programovacie a interaktivne prostredia'),
-(2, 'en', 'pfg', 'Programming and interactive enviroments');
+(1, 'sk', 'PFG', 'Programovacie a interaktivne prostredia'),
+(2, 'en', 'PFG', 'Programming and interactive enviroments');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rozvrh`
+-- Štruktúra tabuľky pre tabuľku `rozvrh`
 --
 
 DROP TABLE IF EXISTS `rozvrh`;
@@ -85,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `rozvrh` (
 ) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
 --
--- Dumping data for table `rozvrh`
+-- Sťahujem dáta pre tabuľku `rozvrh`
 --
 
 INSERT INTO `rozvrh` (`idrozvrh`, `den`, `hodina`, `predmet`, `trieda`) VALUES
@@ -136,7 +160,7 @@ INSERT INTO `rozvrh` (`idrozvrh`, `den`, `hodina`, `predmet`, `trieda`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `uzivatelia`
+-- Štruktúra tabuľky pre tabuľku `uzivatelia`
 --
 
 DROP TABLE IF EXISTS `uzivatelia`;
@@ -146,20 +170,21 @@ CREATE TABLE IF NOT EXISTS `uzivatelia` (
   `priezvisko` varchar(100) CHARACTER SET utf16 COLLATE utf16_slovak_ci NOT NULL,
   `datum_narodenia` date NOT NULL,
   `id_c_trieda` int(3) NOT NULL DEFAULT '0',
+  `id_c_pohlavie` int(2) NOT NULL,
   `logname` varchar(150) CHARACTER SET utf8 COLLATE utf8_slovak_ci NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`iduzivatelia`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci COMMENT='toto je tabulka pouzivatelov od kubicu 14.10.2020';
 
 --
--- Dumping data for table `uzivatelia`
+-- Sťahujem dáta pre tabuľku `uzivatelia`
 --
 
-INSERT INTO `uzivatelia` (`iduzivatelia`, `meno`, `priezvisko`, `datum_narodenia`, `id_c_trieda`, `logname`, `password`) VALUES
-(1, 'Lukáš', 'Katona', '2002-11-14', 0, 'LukoKat', '7aff03960854665c74950f430469641f755d583c'),
-(2, 'Dan', 'Valníček', '2002-10-25', 0, 'juceShady', '4b84b15bff6ee5796152495a230e45e3d7e947d9'),
-(3, 'Jakub', 'Vdrážka', '2002-12-21', 0, 'abs3nce', '0466f855273bca9af4455a4d0245314b2d154b62'),
-(4, 'Ľuboš', 'Lošonský', '2002-04-23', 0, 'Astimos', '72765ed8df48e6eb847772fc1e9aa6fb09185464');
+INSERT INTO `uzivatelia` (`iduzivatelia`, `meno`, `priezvisko`, `datum_narodenia`, `id_c_trieda`, `id_c_pohlavie`, `logname`, `password`) VALUES
+(1, 'Lukáš', 'Katona', '2002-11-14', 3, 1, 'LukoKat', '7aff03960854665c74950f430469641f755d583c'),
+(2, 'Dan', 'Valníček', '2002-10-25', 3, 3, 'juceShady', '4b84b15bff6ee5796152495a230e45e3d7e947d9'),
+(3, 'Jakub', 'Vdrážka', '2002-12-21', 3, 2, 'abs3nce', '0466f855273bca9af4455a4d0245314b2d154b62'),
+(4, 'Ľuboš', 'Lošonský', '2002-04-23', 3, 4, 'Astimos', '72765ed8df48e6eb847772fc1e9aa6fb09185464');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

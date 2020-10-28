@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030209fb-c67c-412d-a6c1-ac81aa44a5c5" name="Default Changelist" comment="responsive update">
+    <list default="true" id="030209fb-c67c-412d-a6c1-ac81aa44a5c5" name="Default Changelist" comment="responsive update 2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabulka.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabulka.php" afterDir="false" />
     </list>
@@ -59,7 +59,10 @@
       <workItem from="1601443132243" duration="155000" />
       <workItem from="1601443420014" duration="4494000" />
       <workItem from="1602048696107" duration="3635000" />
-      <workItem from="1602577043174" duration="6139000" />
+      <workItem from="1602577043174" duration="6322000" />
+      <workItem from="1602655543016" duration="1404000" />
+      <workItem from="1602665122873" duration="29000" />
+      <workItem from="1603868333447" duration="2762000" />
     </task>
     <task id="LOCAL-00001" summary="tabulka">
       <created>1600841500101</created>
@@ -82,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602583238492</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="responsive update 2.0">
+      <created>1602583346208</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602583346208</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,7 +115,8 @@
     <MESSAGE value="tabulka.php" />
     <MESSAGE value="responsive" />
     <MESSAGE value="responsive update" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive update" />
+    <MESSAGE value="responsive update 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="responsive update 2.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="725" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600839465216">
@@ -120,10 +131,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="838" y="423" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1600321382520" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602583247136">
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602583351796">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602583247136" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602583351796" />
+    <state x="777" y="-641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602665133511">
+      <screen x="0" y="-1080" width="1920" height="1050" />
+    </state>
+    <state x="777" y="-641" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1602665133511" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600321421507">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
